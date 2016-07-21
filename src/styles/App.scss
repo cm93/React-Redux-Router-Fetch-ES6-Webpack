@@ -1,0 +1,65 @@
+
+.wrap {
+  height: 100%;
+  width: 100%;
+  background-color: #f3f3f4;
+  .login-holder {
+    h3 {
+      margin: 0;
+    }
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 200px;
+    text-align: center;
+    .login {
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+}
+
+.left-bar {
+  color: rgba(0, 0, 0, 0.870588);
+  transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  box-shadow: rgba(0, 0, 0, 0.156863) 0px 3px 10px, rgba(0, 0, 0, 0.227451) 0px 3px 10px;
+  border-radius: 0px;
+  height: 100%;
+  width: 256px;
+  position: fixed;
+  z-index: 1200;
+  left: 0px;
+  top: 0px;
+  transform: translate3d(0px, 0px, 0px);
+  overflow: auto;
+  background-color: rgb(255, 255, 255);
+  .title {
+    cursor: pointer;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    line-height: 64px;
+    font-weight: 100;
+    margin-top: -8px;
+    padding-left: 24px;
+    background-color: rgb(0, 188, 212);
+  }
+  .active {
+    background-color: rgba(0,0,0,0.098)!important;
+  }
+}
+.top-bar {
+  color: rgba(0, 0, 0, 0.870588); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border-radius: 0px; position: fixed; z-index: 1101; width: 100%; display: flex; padding-left: 24px; padding-right: 24px; top: 0px; background-color: rgb(0, 188, 212); height: 64px;
+  .button {
+    right: 0px;
+    top: 50%;
+    position: absolute;
+    margin-top: -18px;
+    span {
+      color: #fff;
+    }
+  }
+}
+
+.holder { position: fixed;  left:280px; top: 64px; padding-top: 20px; }
