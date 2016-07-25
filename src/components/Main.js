@@ -3,7 +3,7 @@ require('styles/App.scss');
 
 import React, { Component, PropTypes } from 'react'
 
-let yeomanImage = require('../images/yeoman.png');
+let yeomanImage = require('./yeoman.png');
 
 class AppComponent extends React.Component {
     constructor(props, context) {
