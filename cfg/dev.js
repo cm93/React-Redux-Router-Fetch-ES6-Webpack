@@ -11,13 +11,13 @@ let BowerWebpackPlugin = require('bower-webpack-plugin');
 let config = Object.assign({}, baseConfig, {
   entry: {
     home: path.join(__dirname, '../src/routes/home/index'),
-    test: path.join(__dirname, '../src/routes/test/index')
+    test: path.join(__dirname, '../src/routes/test/index'),
+    store: path.join(__dirname, '../src/routes/store/index'),
   },
   cache: true,
   devtool: 'eval-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
     new BowerWebpackPlugin({
       searchResolveModulesDirectories: false
     }),
