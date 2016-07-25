@@ -15,8 +15,6 @@ class Common extends Component {
     render() {
         return (
             <div>
-                <FormInput required={true} placeholder="请输入邮箱" errorText="邮箱格式有问题" type='email' />
-
                 <Header />
 
                 <Login />

@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import {connect} from 'react-redux'
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
+import FormInput from '../FormInput'
 
 class Login extends Component {
     constructor(props, context) {
@@ -15,13 +16,9 @@ class Login extends Component {
                 </ul>
                 <ul className="uk-content" id="uk-login">
                     <li className="content" id="login">
-                        <div className="validation phone">
-                            <input type="text" className="uk-width-1-1 uk-form-input uk-form-input-large" placeholder="手机号" />
-                        </div>
+                        <FormInput required={true} placeholder="手机号" errorText="请输入正确的格式" checkType='phone' size="large" />
                         <div className="cl-10"></div>
-                        <div className="validation password">
-                            <input type="password" className="uk-width-1-1 uk-form-input uk-form-input-large" placeholder="密码" />
-                        </div>
+                        <FormInput required={true} placeholder="密码" type="password" errorText="请输入正确的格式" checkType='password' size="large" />
                         <div className="cl-10"></div>
                         <label className="remember">
                             <input type="checkbox" />

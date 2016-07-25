@@ -18,9 +18,9 @@ class FormInput extends Component {
     	let inputValue = e.target.value;
         if (this.props.required) {
             if (inputValue === '' || inputValue === null) {
-                this.setState({ inputError: true });
+                this.setState({ inputError: true, errorText: '不能为空' });
             } else {
-            	switch(this.props.type) {
+            	switch(this.props.checkType) {
             		case 'text' :
             			this.setState({ inputError: false });
             			break;
@@ -62,7 +62,10 @@ class FormInput extends Component {
     render() {
         let inputClass = classNames({
             'form-input': true,
-            'form-input-error': this.state.inputError
+            'uk-width-1-1': true,
+            'uk-form-input': true,
+            'uk-form-input-large': this.props.size === 'large',
+            'uk-form-input-error': this.state.inputError
         });
         let pClass = classNames({
             'form-error-message': true,
@@ -70,14 +73,17 @@ class FormInput extends Component {
         });
 
         return (
-            <div className = 'form-input-row' >
+            <div style={{position: 'relative'}}>
 		        <input className = { inputClass }
 		        defaultValue = ''
+                type={this.props.type ? this.props.type : 'text'}
 		        onFocus = { this.handleFocus }
 		        onBlur = { (e) => this.handleBlur(e) }
                 placeholder = { this.props.placeholder }  
 		        /> 
-		        <p className = { pClass } > { this.state.errorText } </p>
+		        <p style={{'marginTop': this.props.size === 'large' ? '-9px' : '-6px'}} className = { pClass } >
+                    { this.state.errorText }
+                </p>
             </div>
         )
     }
