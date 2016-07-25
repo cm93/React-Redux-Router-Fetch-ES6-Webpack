@@ -324,7 +324,7 @@
   margin-left: -200px;
   top: 100px;
   z-index: 100000;
-  display: none; }
+  display: block; }
 
 #address-holder {
   position: fixed;
@@ -2109,20 +2109,6 @@
   height: 36px; }
 
 /*animation*/
-.animation-fade-top-in {
-  -webkit-animation: animation-fade-top-in 0.5s 1 ease-out forwards;
-  -moz-animation: animation-fade-top-in 0.5s 1 ease-out forwards;
-  -o-animation: animation-fade-top-in 0.5s 1 ease-out forwards; }
-
-@-webkit-keyframes animation-fade-top-in {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -166px, 0);
-    transform: translate3d(0, -166px, 0); }
-  100% {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0); } }
 .animation-error-shake {
   -webkit-animation: animation-error-shake 0.5s 1 ease-out forwards;
   -moz-animation: animation-error-shake 0.5s 1 ease-out forwards;
@@ -2156,24 +2142,36 @@
     bottom: 10px; }
   100% {
     bottom: -40px; } }
-.example {
-  width: 100px;
-  height: 100px;
-  background: #000;
-  position: absolute; }
+.animation-fade-top-in {
+  -webkit-animation: animation-fade-top-in 0.5s 1 ease-out forwards;
+  -moz-animation: animation-fade-top-in 0.5s 1 ease-out forwards;
+  -o-animation: animation-fade-top-in 0.5s 1 ease-out forwards; }
 
-.example-enter {
-  opacity: 0.01; }
-
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in; }
-
-.example-leave {
-  opacity: 1; }
-
-.example-leave.example-leave-active {
+@-webkit-keyframes animation-fade-top-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -166px, 0);
+    transform: translate3d(0, -166px, 0); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+.fadeIn-enter {
   opacity: 0.01;
-  transition: opacity 300ms ease-in; }
+  transform: translate3d(0, -166px, 0); }
+
+.fadeIn-enter.fadeIn-enter-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: all 500ms ease-out; }
+
+.fadeIn-leave {
+  opacity: 1;
+  transform: translate3d(0, 0, 0); }
+
+.fadeIn-leave.fadeIn-leave-active {
+  opacity: 0.01;
+  transform: translate3d(0, -166px, 0);
+  transition: all 500ms ease-out; }
 
 /*# sourceMappingURL=style.css.map */

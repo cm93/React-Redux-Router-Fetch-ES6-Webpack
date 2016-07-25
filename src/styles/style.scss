@@ -100,7 +100,7 @@
     .right { width: 35%;  display: inline-block; float: right; }
   }
 }
-#login-holder { position: fixed; width: 400px; left: 50%; margin-left: -200px; top: 100px; z-index: 100000; display: none; }
+#login-holder { position: fixed; width: 400px; left: 50%; margin-left: -200px; top: 100px; z-index: 100000; display: block; }
 #address-holder { position: fixed; width: 800px; left: 50%; margin-left: -400px; top: 100px; z-index: 100000; display: none;
   .icon-modal-close { position: absolute; right: 20px; top: 18px; cursor: pointer; }
   .uk-panel-body { padding: 50px 155px;
@@ -832,18 +832,6 @@
 
 
 /*animation*/
-.animation-fade-top-in
-{
-  -webkit-animation: animation-fade-top-in 0.5s 1 ease-out forwards;
-  -moz-animation: animation-fade-top-in 0.5s 1 ease-out forwards;
-  -o-animation: animation-fade-top-in 0.5s 1 ease-out forwards;
-}
-
-@-webkit-keyframes animation-fade-top-in
-{
-  0% { opacity: 0; -webkit-transform: translate3d(0, -166px, 0); transform: translate3d(0, -166px, 0); }
-  100% { opacity: 1; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
-}
 
 .animation-error-shake
 {
@@ -894,26 +882,37 @@
   100% { bottom: -40px; }
 }
 
-.example {
-  width: 100px;
-  height: 100px;
-  background: #000;
-  position: absolute;
+.animation-fade-top-in
+{
+  -webkit-animation: animation-fade-top-in 0.5s 1 ease-out forwards;
+  -moz-animation: animation-fade-top-in 0.5s 1 ease-out forwards;
+  -o-animation: animation-fade-top-in 0.5s 1 ease-out forwards;
 }
-.example-enter {
+
+@-webkit-keyframes animation-fade-top-in
+{
+  0% { opacity: 0; -webkit-transform: translate3d(0, -166px, 0); transform: translate3d(0, -166px, 0); }
+  100% { opacity: 1; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+}
+
+.fadeIn-enter {
   opacity: 0.01;
+  transform: translate3d(0, -166px, 0);
 }
 
-.example-enter.example-enter-active {
+.fadeIn-enter.fadeIn-enter-active {
   opacity: 1;
-  transition: opacity 500ms ease-in;
+  transform: translate3d(0, 0, 0);
+  transition: all 500ms ease-out;
 }
 
-.example-leave {
+.fadeIn-leave {
   opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
-.example-leave.example-leave-active {
+.fadeIn-leave.fadeIn-leave-active {
   opacity: 0.01;
-  transition: opacity 300ms ease-in;
+  transform: translate3d(0, -166px, 0);
+  transition: all 500ms ease-out;
 }
