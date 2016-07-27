@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import classNames from 'classnames'
 
 class FormInput extends Component {
@@ -30,6 +31,9 @@ class FormInput extends Component {
             		case 'phone':
             			this.phoneValid(inputValue);
             			break;
+                    case 'password':
+                        this.passwordValid(inputValue);
+                        break;
             		default:
             			this.setState({ inputError: false });
             	}
@@ -41,19 +45,38 @@ class FormInput extends Component {
         this.setState({inputError: false })
     }
 
+    passwordValid(password)
+    {
+        if (password.length < 6 || password.length > 20)
+        {
+            this.props.onBlur(password, true);
+            this.setState({inputError: true, errorText: '长度在6-20之间'});
+        }
+        else
+        {
+            this.props.onBlur(password, false);
+            this.setState({inputError: false});
+        }
+    }
+
     emailValid(email) {
     	const reg =  /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
     	if(reg.test(email)) {
+            this.props.onBlur(email, false);
     		this.setState({inputError: false});
-    	}else {
+    	}
+        else {
+            this.props.onBlur(email, false);
     		this.setState({inputError: true, errorText: this.props.errorText});
     	}
     }
     phoneValid(phone) {
         const reg = /^0?1[3|4|5|8][0-9]\d{8}$/;
     	if(reg.test(phone)) {
+            this.props.onBlur(phone, false);
     		this.setState({inputError: false });
     	}else {
+            this.props.onBlur(phone, false);
     		this.setState({inputError: true, errorText: this.props.errorText});
     	}
 
@@ -87,6 +110,10 @@ class FormInput extends Component {
             </div>
         )
     }
+}
+
+FormInput.PropTypes = {
+
 }
 
 export default FormInput

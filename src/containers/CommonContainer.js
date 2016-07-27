@@ -1,7 +1,7 @@
 import 'styles/App.css';
 import React, { Component, PropTypes } from 'react'
 import Header from '../components/common/Header';
-import Login from '../components/common/Login';
+import LoginHolder from '../components/common/LoginHolder';
 import Modal from '../components/common/Modal';
 import FormInput from '../components/FormInput';
 import {connect} from 'react-redux'
@@ -17,7 +17,7 @@ class Common extends Component {
             <div>
                 <Header />
 
-                <Login />
+                <LoginHolder />
 
                 <Modal />
 

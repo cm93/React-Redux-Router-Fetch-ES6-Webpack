@@ -763,13 +763,14 @@
 /* ========================================================================
    Login Holder
  ========================================================================== */
-.login-holder { background-color: #fff; border-radius: 7px; box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.20); -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.20); border: 1px solid #E1E8ED;
+.login-holder { background-color: #fff; border-radius: 7px; box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.20); -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.20); border: 1px solid #E1E8ED; overflow: hidden;
   .content { padding: 36px 24px 0 24px; }
   .error-message { color: #ED4742; font-size: 12px; position: absolute; right: 10px; top: 50%; margin-top: -9px; display: none; }
   .validation { position: relative; }
+  .section { cursor: pointer; color: #cad3dd; }
+  .section.active { color: #3b5069; }
 }
 #send-code { padding: 0!important; }
-#register { display: none; }
 #password-part { display: none; }
 #login .remember:after { content: '记住我'; font-size: 12px; color:#CAD3DD; margin-left: 6px; top: -2px; position: relative; }
 #login .remember { float: left;
