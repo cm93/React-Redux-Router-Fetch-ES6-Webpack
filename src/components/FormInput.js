@@ -6,9 +6,7 @@ class FormInput extends Component {
 
     constructor(props) {
         super(props)
-        console.log(props)
         this.state = {
-           
             'inputError': false,
             'errorText': '不能为空'
         }
@@ -16,28 +14,26 @@ class FormInput extends Component {
 
     handleBlur(e) {
 
-    	const input = e.target.value
+    	let input = e.target.value
         if (this.props.required) {
             if (input === '' || input === null) {
                 this.setState({ 'inputError': true })
+                this.setState({'errorText':'不能为空'})
             } else {
-            	;
             	switch(this.props.type) {
             		case 'text' :
             			this.setState({ 'inputError': false })
             			break
             		case 'email':
-            			this.emailValid(input).bind(this)
+            			this.emailValid(input)
             			break
             		case 'phone':
-            			this.phoneValid(input).bind(this)
+            			this.phoneValid(input)
             			break;
             		default:
             			this.setState({ 'inputError': false })
             	}
-                this.setState({ 'inputError': false })
             }
-
         }else{
 
         }
@@ -50,7 +46,7 @@ class FormInput extends Component {
    
     emailValid(email){
     	let reg =  /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/
-    	console.log(reg.test(email));
+    	
     	if(reg.test(email)){
     		this.setState({ 'inputError': false })
     	}else{
@@ -70,11 +66,11 @@ class FormInput extends Component {
     }
 
     render() {
-        const inputClass = classNames({
+        let inputClass = classNames({
             'form-input': true,
             'form-input-error': this.state.inputError
         })
-        const pClass = classNames({
+        let pClass = classNames({
             'form-error-message': true,
             'hide': !this.state.inputError
         })
@@ -92,5 +88,7 @@ class FormInput extends Component {
         )
     }
 }
+
+
 
 export default FormInput

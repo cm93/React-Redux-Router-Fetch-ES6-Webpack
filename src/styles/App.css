@@ -86,7 +86,6 @@
 .form-input:focus {
     color: #3B5069;
     background: #FFFFFF;
-    
     border: 1px solid #1BDBEB;
     box-shadow: 0 0 2px 0 rgba(26,218,235,0.50);
     -webkit-box-shadow: 0 0 2px 0 rgba(26,218,235,0.50);
