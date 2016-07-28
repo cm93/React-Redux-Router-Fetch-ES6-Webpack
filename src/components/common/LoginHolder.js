@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import Login from './Login'
 import Register from './Register'
+import {modalClose} from '../../actions/loginAction'
 
 class LoginHolder extends Component {
     constructor(props, context) {
@@ -23,6 +24,17 @@ class LoginHolder extends Component {
             isLoginPart: true
         })
     };
+    shouldComponentUpdate(nextProps) {
+        if (!nextProps.isGuest && nextProps.status)
+        {
+            this.props.dispatch(modalClose());
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
     render() {
         let child = this.state.isLoginPart ? <Login /> : <Register />;
         let item  = this.props.status ? <div id="login-holder">
@@ -70,12 +82,14 @@ class LoginHolder extends Component {
 }
 
 LoginHolder.propTypes = {
-    status: PropTypes.bool
+    status: PropTypes.bool,
+    isGuest: PropTypes.bool
 };
 
 function mapStateToProps(state) {
     return {
-        status: state.modalStatus.loginModal
+        status: state.modalStatus.loginModal,
+        isGuest: !state.loginStatus.loginStatus
     }
 }
 

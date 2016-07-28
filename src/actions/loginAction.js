@@ -7,26 +7,25 @@ import  DIX  from '../helper/const';
 
 export const MODAL_OPEN = 'MODAL_OPEN';
 export const MODAL_CLOSE = 'MODAL_CLOSE';
+export const IS_LOGIN = 'IS_LOGIN';
+export const IS_GUEST = 'IS_GUEST';
+export const ERROR = 'ERROR';
 
-export function adminLogin(username, password) {
+export function userLogin(phone, password) {
     return (dispatch) => {
-        fetchPost(DIX.API.ADMIN_LOGIN, {
-            username: username,
+        fetchPost(DIX.API.USER_LOGIN, {
+            phone: phone,
             password: password
-        }).then(res => {
-            if (res.ok)
-            {
-                res.json().then(function(data) {
-                    switch (data.code) {
-                        case 0:
-                            UTIL.go('./#/admin-index');
-                            UTIL.set(DIX.KEY.KEY_USER, JSON.stringify(data.user));
-                            UTIL.setToken(data.token);
-                            return dispatch({type: '', status: data.code});
-                        default:
-                            return dispatch({type: '', status: data.code});
-                    }
-                });
+        }).then(data => {
+            switch (data.code) {
+                case 0:
+                    //UTIL.set(DIX.KEY.KEY_USER, JSON.stringify(data.user));
+                    //UTIL.setToken(data.token);
+                    return dispatch({type: IS_LOGIN});
+                case -1:
+                    return dispatch({type: ERROR});
+                default:
+                    return dispatch({type: IS_GUEST});
             }
         })
     }

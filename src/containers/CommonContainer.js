@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from 'react'
 import Header from '../components/common/Header';
 import LoginHolder from '../components/common/LoginHolder';
 import Modal from '../components/common/Modal';
+import Banner from '../components/Banner';
 import FormInput from '../components/FormInput';
 import {connect} from 'react-redux'
 require('../styles/yz-uikit.min.css');

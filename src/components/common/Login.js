@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import FormInput from '../FormInput'
-import {} from '../../actions/loginAction'
+import {userLogin} from '../../actions/loginAction'
 
 class Login extends Component {
     constructor(props, context) {
@@ -12,24 +12,36 @@ class Login extends Component {
 
         this.state = {
             phone: '',
-            password: ''
+            phoneError: true,
+            password: '',
+            passwordError: true
         }
     };
     handClickLogin() {
-        console.log(this.state);
+        if (this.state.phoneError || this.state.passwordError) return;
+        this.props.dispatch(userLogin(this.state.phone, this.state.password));
     };
-    handleBlurPhone(value) {
+    handleBlurPhone(value, status) {
         this.setState({
-            phone: value
+            phone: value,
+            phoneError: status
         });
     };
-    handleBlurPassword(value) {
+    handleBlurPassword(value, status) {
         this.setState({
-            password: value
+            password: value,
+            passwordError: status
         });
     };
-    shouldComponentUpdate() {
-        return false;
+    shouldComponentUpdate(nextProps) {
+        if (nextProps.hasError)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     };
     render() {
         return (
@@ -61,6 +73,16 @@ class Login extends Component {
     }
 }
 
-export default connect()(Login)
+Login.propTypes = {
+    error: PropTypes.bool,
+};
+
+function mapStateToProps(state) {
+    return {
+        error: state.loginStatus.hasError
+    }
+}
+
+export default connect(mapStateToProps)(Login)
 
 

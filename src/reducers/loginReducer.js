@@ -1,4 +1,4 @@
-import { MODAL_CLOSE, MODAL_OPEN } from '../actions/loginAction'
+import { MODAL_CLOSE, MODAL_OPEN, IS_GUEST, IS_LOGIN, ERROR } from '../actions/loginAction'
 
 function modalStatus(state = {
     loginModal: false,
@@ -20,8 +20,37 @@ function modalStatus(state = {
     }
 }
 
+function loginStatus(state={
+    hasError: false,
+    loginStatus: false
+}, action) {
+    switch (action.type) {
+        case IS_LOGIN:
+            return Object.assign({}, state, {
+                hasError: false,
+                loginStatus: true
+            });
+        case IS_GUEST:
+            return Object.assign({}, state, {
+                hasError: false,
+                loginStatus: false
+            });
+        case ERROR:
+            return Object.assign({}, state, {
+                hasError: true,
+                loginStatus: false
+            });
+        default:
+            return Object.assign({}, state, {
+                hasError: false,
+                loginStatus: false
+            });
+    }
+}
+
 const index = {
-    modalStatus
+    modalStatus,
+    loginStatus
 };
 
 export default index
