@@ -41,8 +41,20 @@ class FormInput extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.status)
+        {
+            this.setState({inputError: true, errorText: this.props.errorText});
+        }
+    }
+
     handleFocus() {
-        this.setState({inputError: false })
+        this.setState({inputError: false });
+        if (this.props.onFocus !== undefined)
+        {
+            this.props.onFocus();
+        }
+
     }
 
     passwordValid(password)
@@ -62,11 +74,12 @@ class FormInput extends Component {
     emailValid(email) {
     	const reg =  /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
     	if(reg.test(email)) {
+            //触发父组件
             this.props.onBlur(email, false);
     		this.setState({inputError: false});
     	}
         else {
-            this.props.onBlur(email, false);
+            this.props.onBlur(email, true);
     		this.setState({inputError: true, errorText: this.props.errorText});
     	}
     }
@@ -76,7 +89,7 @@ class FormInput extends Component {
             this.props.onBlur(phone, false);
     		this.setState({inputError: false });
     	}else {
-            this.props.onBlur(phone, false);
+            this.props.onBlur(phone, true);
     		this.setState({inputError: true, errorText: this.props.errorText});
     	}
 
@@ -112,8 +125,14 @@ class FormInput extends Component {
     }
 }
 
-FormInput.PropTypes = {
+FormInput.propTypes = {
+    error: PropTypes.bool,
+};
 
+function mapStateToProps(state) {
+    return {
+        error: state.loginStatus.hasError
+    }
 }
 
-export default FormInput
+export default connect(mapStateToProps)(FormInput)

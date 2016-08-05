@@ -10,6 +10,7 @@ export const MODAL_CLOSE = 'MODAL_CLOSE';
 export const IS_LOGIN = 'IS_LOGIN';
 export const IS_GUEST = 'IS_GUEST';
 export const ERROR = 'ERROR';
+export const RIGHT = 'RIGHT';
 
 export function userLogin(phone, password) {
     return (dispatch) => {
@@ -29,6 +30,10 @@ export function userLogin(phone, password) {
             }
         })
     }
+}
+
+export function right() {
+    return {type: RIGHT}
 }
 
 export function modalOpen() {

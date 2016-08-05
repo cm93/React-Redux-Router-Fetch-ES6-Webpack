@@ -37,7 +37,7 @@ function fetchPost(url ,data) {
         // 处理响应中的文本信息
         return res.json();
     }).catch(function(err) {
-      console.log('Fetch Error : %S', err);
+        console.log('Fetch Error : %S', err);
     })
 }
 

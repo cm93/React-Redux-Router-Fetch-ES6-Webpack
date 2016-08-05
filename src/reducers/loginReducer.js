@@ -1,4 +1,4 @@
-import { MODAL_CLOSE, MODAL_OPEN, IS_GUEST, IS_LOGIN, ERROR } from '../actions/loginAction'
+import { MODAL_CLOSE, MODAL_OPEN, IS_GUEST, IS_LOGIN, ERROR, RIGHT } from '../actions/loginAction'
 
 function modalStatus(state = {
     loginModal: false,
@@ -38,6 +38,11 @@ function loginStatus(state={
         case ERROR:
             return Object.assign({}, state, {
                 hasError: true,
+                loginStatus: false
+            });
+        case RIGHT:
+            return Object.assign({}, state, {
+                hasError: false,
                 loginStatus: false
             });
         default:

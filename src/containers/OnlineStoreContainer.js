@@ -7,6 +7,8 @@ const preemption = require('../img/store/preemption.png');
 const purchase = require('../img/store/purchase.png');
 const afterSale = require('../img/store/after-sale.png');
 
+require('../styles/slick.css');
+
 class OnlineStoreContainer extends Component{
 
 	constructor(props){
@@ -72,10 +74,6 @@ class OnlineStoreContainer extends Component{
 			</div>
 	  )
 	}
-
-
-
-
 }
 
 export default OnlineStoreContainer

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import FormInput from '../FormInput'
-import {userLogin} from '../../actions/loginAction'
+import {userLogin, right} from '../../actions/loginAction'
 
 class Login extends Component {
     constructor(props, context) {
@@ -9,6 +9,7 @@ class Login extends Component {
         this.handClickLogin = this.handClickLogin.bind(this);
         this.handleBlurPhone = this.handleBlurPhone.bind(this);
         this.handleBlurPassword = this.handleBlurPassword.bind(this);
+        this.handleFocusPassword = this.handleFocusPassword.bind(this);
 
         this.state = {
             phone: '',
@@ -20,6 +21,12 @@ class Login extends Component {
     handClickLogin() {
         if (this.state.phoneError || this.state.passwordError) return;
         this.props.dispatch(userLogin(this.state.phone, this.state.password));
+    };
+    handleFocusPassword() {
+        if (this.props.error === true)
+        {
+            this.props.dispatch(right());
+        }
     };
     handleBlurPhone(value, status) {
         this.setState({
@@ -34,7 +41,7 @@ class Login extends Component {
         });
     };
     shouldComponentUpdate(nextProps) {
-        if (nextProps.hasError)
+        if (nextProps.error !== this.props.error)
         {
             return true;
         }
@@ -49,7 +56,7 @@ class Login extends Component {
                 <FormInput onBlur={this.handleBlurPhone} required={true} placeholder="手机号" errorText="请输入正确的格式" checkType='phone' size="large">
                 </FormInput>
                 <div className="cl-10"></div>
-                <FormInput onBlur={this.handleBlurPassword} required={true} placeholder="密码" type="password" errorText="请输入正确的格式" checkType='password' size="large" />
+                <FormInput onBlur={this.handleBlurPassword} onFocus={this.handleFocusPassword} required={true} placeholder="密码" type="password" errorText="密码错误" checkType='password' size="large" status={this.props.error} />
                 <div className="cl-10"></div>
                 <label className="remember">
                     <input type="checkbox" />

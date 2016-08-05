@@ -14,7 +14,7 @@ const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 const store = configureStore();
 
 injectTapEventPlugin();
- 
+
 // Render the main component into the dom
 ReactDOM.render(
     <Provider store={store}>
