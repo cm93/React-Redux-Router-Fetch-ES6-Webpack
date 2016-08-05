@@ -38,7 +38,7 @@ class LeftBar extends Component {
         <div className="left-bar">
           <MuiThemeProvider muiTheme={getMuiTheme()}>
             <List>
-              <div className="title" onClick={that.handleToIndex.bind(this)}>云造后台管理系统</div>
+              <div className="title" onClick={that.handleToIndex.bind(this)}>后台管理系统</div>
               {route.map(function(item) {
                 return <ListItem primaryTogglesNestedList={true} primaryText={item.title} key={item.id} leftIcon={<ContentInbox />} initiallyOpen={item.id === parentId ? true : false} nestedItems={[
               item.children.map(function(child) {

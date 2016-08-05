@@ -60,6 +60,7 @@ class Login extends Component {
     }
   };
   render() {
+    console.log(status);
     const { status } = this.props;
     if (status === DIX.ERROR.ERROR_WRONG_PASSWORD)
     {
@@ -74,7 +75,7 @@ class Login extends Component {
     return (
       <div className="wrap">
         <div className="login-holder">
-          <h3>云造后台管理中心</h3>
+          <h3>后台管理中心</h3>
 
           <MuiThemeProvider muiTheme={getMuiTheme()}>
             <AutoComplete

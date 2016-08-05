@@ -1,3 +1,66 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: 0;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  font-family: 'SF UI Display','PingFang','Hiragino Sans GB',Arial,'Microsoft YaHei',STHeiti,sans-serif;
+  -webkit-font-smoothing: antialiased; }
+
+body {
+  margin: 0;
+  background: #f2f5f8; }
+
+a {
+  background: transparent;
+  text-decoration: none; }
+
+a:hover, a:focus, a:active, a:visited {
+  text-decoration: none;
+  outline: 0; }
+
+em {
+  font-style: normal; }
+
+img, textarea {
+  border: none; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border: 0;
+  vertical-align: middle; }
+
+li {
+  list-style: none; }
+
+small {
+  font-size: 80%; }
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+  display: block; }
+
+.reply-holder input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: rgba(107, 124, 145, 0.26);
+  font-size: 16px; }
+
+ol, ul {
+  list-style: none; }
+
+a {
+  background-color: transparent;
+  text-decoration: none; }
+
+html, body {
+  margin: 0;
+  width: 100%; }
+
 .wrap {
   height: 100%;
   width: 100%;
@@ -71,53 +134,5 @@
   left: 280px;
   top: 64px;
   padding-top: 20px; }
-*:focus {outline: none;} 
-.form-input {
-    background: #FFFFFF;
-    background-image: linear-gradient(-179deg, rgba(0,0,0,0.02) 0%, rgba(255,255,255,0.02) 100%);
-    border: 1px solid #E5EAF0;
-    border-radius: 4px;
-    font-size: 14px;
-    height: 32px;
-    line-height: 20px;
-    color: #3B5069;
-    padding-left:5px;
-}
-.form-input:focus {
-    color: #3B5069;
-    background: #FFFFFF;
-    border: 1px solid #1BDBEB;
-    box-shadow: 0 0 2px 0 rgba(26,218,235,0.50);
-    -webkit-box-shadow: 0 0 2px 0 rgba(26,218,235,0.50);
-    -moz-box-shadow: 0 0 2px 0 rgba(26,218,235,0.50);
-}
-.form-input-focus{
-    background: #FFFFFF;
-    color: #3B5069;
-    -webkit-appearance: none;
-    border: 1px solid #1BDBEB;
-    box-shadow: 0 0 2px 0 rgba(26,218,235,0.50);
-    -webkit-box-shadow: 0 0 2px 0 rgba(26,218,235,0.50);
-    -moz-box-shadow: 0 0 2px 0 rgba(26,218,235,0.50);
-}
-.form-input-row{
-  position: relative;
-}
-.form-input-error {
-    background: #FFFFFF;
-    border: 1px solid #ED4742;
-}
-.form-error-message{
-    color: #ed4742;
-    font-size: 12px;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    margin:0;
-    margin-top: -6px;
 
-}
-.hide{
-  display: none;
-}
 /*# sourceMappingURL=App.css.map */
