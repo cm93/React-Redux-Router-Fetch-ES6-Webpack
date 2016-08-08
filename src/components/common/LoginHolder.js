@@ -17,7 +17,7 @@ class LoginHolder extends Component {
     handClickRegister() {
         this.setState({
             isLoginPart: false
-        })
+        }) 
     };
     handClickLogin() {
         this.setState({

@@ -7,7 +7,7 @@ const preemption = require('../img/store/preemption.png');
 const purchase = require('../img/store/purchase.png');
 const afterSale = require('../img/store/after-sale.png');
 
-require('../styles/slick.css');
+import '../styles/slick.css';
 
 class OnlineStoreContainer extends Component{
 
