@@ -2,7 +2,7 @@
  * Created by dev on 16/7/1.
  */
 const DIX = {
-    HOST: 'https://api.zhixingche.com/yunbike/120/',
+    HOST: 'https://api.zhixingche.com/admin/100/',
     API: {
         ADMIN_LOGIN: 'admin/login',
         ADMIN_LIST: 'admin/admin-list',
